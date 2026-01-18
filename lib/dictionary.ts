@@ -507,7 +507,7 @@ export const DICTIONARY = {
             },
             hero: {
                 eyebrow: "CONTACT",
-                title: "Contactez-nous", // Source used French
+                title: "Get in touch",
                 subline: "A discreet, clear and personalized conversation."
             },
             reassurance: "Every request is handled with care and confidentiality. Whether it concerns sales, chauffeur services or a specific request, our team responds with precision and discretion.",
