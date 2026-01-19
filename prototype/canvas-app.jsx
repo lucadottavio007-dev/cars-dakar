@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { 
-  Menu, X, ChevronRight, Phone, Mail, MapPin, 
-  Disc, Shield, Filter, ArrowRight, Star, Check, 
-  Globe, Plane, Briefcase, Clock, Map as MapIcon, 
-  UserCheck, Key, Lock, Zap, Search, FileCheck, Eye, 
+import {
+  Menu, X, ChevronRight, Phone, Mail, MapPin,
+  Disc, Shield, Filter, ArrowRight, Star, Check,
+  Globe, Plane, Briefcase, Clock, Map as MapIcon,
+  UserCheck, Key, Lock, Zap, Search, FileCheck, Eye,
   Gauge, Send, Volume2, VolumeX
 } from 'lucide-react';
 
@@ -16,7 +16,7 @@ import {
 const CursorAura = () => {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
-  
+
   const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
@@ -60,7 +60,7 @@ const TiltCard = ({ children, className = "" }) => {
   const y = useMotionValue(0);
   const ref = useRef(null);
 
-  const rotateX = useTransform(y, [-0.5, 0.5], [6, -6]); 
+  const rotateX = useTransform(y, [-0.5, 0.5], [6, -6]);
   const rotateY = useTransform(x, [-0.5, 0.5], [-6, 6]);
 
   const handleMouseMove = (e) => {
@@ -110,7 +110,7 @@ const MagneticButton = ({ children, onClick, className = "", variant = 'primary'
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    const moveX = (e.clientX - centerX) * 0.2; 
+    const moveX = (e.clientX - centerX) * 0.2;
     const moveY = (e.clientY - centerY) * 0.2;
     x.set(moveX);
     y.set(moveY);
@@ -122,8 +122,8 @@ const MagneticButton = ({ children, onClick, className = "", variant = 'primary'
   };
 
   const base = "relative px-6 py-3 uppercase tracking-widest text-xs font-bold transition-colors duration-300 font-['Montserrat']";
-  const styles = variant === 'primary' 
-    ? "bg-amber-500 text-black hover:bg-amber-400" 
+  const styles = variant === 'primary'
+    ? "bg-amber-500 text-black hover:bg-amber-400"
     : "border border-neutral-700 text-white hover:border-amber-500 hover:text-amber-500";
 
   return (
@@ -151,7 +151,7 @@ const PremiumImage = ({ src, alt, isRequest }) => {
       {isLoading && (
         <div className="absolute inset-0 bg-neutral-800 animate-pulse z-10" />
       )}
-      
+
       {/* Badge for "Sur Demande" */}
       {isRequest && (
         <div className="absolute top-3 right-3 z-20 px-3 py-1 bg-neutral-950/80 backdrop-blur-md border border-amber-500/50 text-amber-500 text-[10px] font-bold uppercase tracking-widest rounded-sm">
@@ -162,12 +162,12 @@ const PremiumImage = ({ src, alt, isRequest }) => {
       {/* Image or Placeholder */}
       {error || !src ? (
         <div className="w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-950 flex items-center justify-center">
-            <span className="text-neutral-700 font-bold tracking-widest uppercase text-xs">Cars Dakar Exclusive</span>
+          <span className="text-neutral-700 font-bold tracking-widest uppercase text-xs">Cars Dakar Exclusive</span>
         </div>
       ) : (
-        <img 
-          src={src} 
-          alt={alt} 
+        <img
+          src={src}
+          alt={alt}
           className={`w-full h-full object-cover transition-all duration-700 ${isLoading ? 'scale-110 blur-sm' : 'scale-100 blur-0'}`}
           onLoad={() => setIsLoading(false)}
           onError={() => { setError(true); setIsLoading(false); }}
@@ -286,9 +286,9 @@ const DICTIONARY = {
       home_desc: "Leader de la location de voiture avec chauffeur et vente de véhicules de luxe à Dakar. Service VIP, transfert AIBD, et flotte premium.",
     },
     nav: { home: "ACCUEIL", sales: "VENTE", rental: "LOCATION", about: "À PROPOS", contact: "CONTACT" },
-    common: { 
-      price: "Prix", 
-      contact_us: "Nous Contacter", 
+    common: {
+      price: "Prix",
+      contact_us: "Nous Contacter",
       learn_more: "En savoir plus",
       back: "Retour",
       request: "Demander",
@@ -319,31 +319,31 @@ const DICTIONARY = {
       title: "Conciergerie & Chauffeur Privé",
       intro: "Des services premium pensés pour les dirigeants, les invités VIP et les séjours haut de gamme.",
       cards: [
-        { 
-          title: "Transfert AIBD VIP", 
-          desc: "Accueil, prise en charge fluide, confort immédiat dès l’atterrissage.", 
-          detail: "25 000 FCFA", 
+        {
+          title: "Transfert AIBD VIP",
+          desc: "Accueil, prise en charge fluide, confort immédiat dès l’atterrissage.",
+          detail: "25 000 FCFA",
           action: "Demander",
           icon: Plane
         },
-        { 
-          title: "Mise à disposition — Dakar", 
-          desc: "Un chauffeur dédié, une voiture impeccable, une journée sans contraintes.", 
-          detail: "35 000 FCFA", 
+        {
+          title: "Mise à disposition — Dakar",
+          desc: "Un chauffeur dédié, une voiture impeccable, une journée sans contraintes.",
+          detail: "35 000 FCFA",
           action: "Demander",
           icon: Clock
         },
-        { 
-          title: "Longue distance / Hors Dakar", 
-          desc: "Voyagez sereinement, avec un service constant, même sur longues distances.", 
-          detail: "60 000 FCFA", 
+        {
+          title: "Longue distance / Hors Dakar",
+          desc: "Voyagez sereinement, avec un service constant, même sur longues distances.",
+          detail: "60 000 FCFA",
           action: "Demander",
           icon: MapIcon
         },
-        { 
-          title: "Corporate & Événements", 
-          desc: "Protocole, discrétion, fiabilité — pour entreprises, mariages et événements.", 
-          detail: "Sur demande", 
+        {
+          title: "Corporate & Événements",
+          desc: "Protocole, discrétion, fiabilité — pour entreprises, mariages et événements.",
+          detail: "Sur demande",
           action: "Demander",
           icon: Briefcase
         }
@@ -518,9 +518,9 @@ const DICTIONARY = {
       home_desc: "Leading luxury car rental with chauffeur and prestige vehicle sales in Dakar. VIP service, AIBD transfer, and premium fleet.",
     },
     nav: { home: "HOME", sales: "CAR DEALER", rental: "CAR RENTAL", about: "ABOUT", contact: "CONTACT" },
-    common: { 
-      price: "Price", 
-      contact_us: "Contact Us", 
+    common: {
+      price: "Price",
+      contact_us: "Contact Us",
       learn_more: "Learn More",
       back: "Back",
       request: "Request",
@@ -707,31 +707,31 @@ const DICTIONARY = {
       title: "Concierge & Private Chauffeur",
       intro: "Premium services built for executives, VIP guests, and high-end travel.",
       cards: [
-        { 
-          title: "AIBD VIP Transfer", 
-          desc: "Seamless pickup, instant comfort from the moment you land.", 
-          detail: "25,000 FCFA", 
+        {
+          title: "AIBD VIP Transfer",
+          desc: "Seamless pickup, instant comfort from the moment you land.",
+          detail: "25,000 FCFA",
           action: "Request",
           icon: Plane
         },
-        { 
-          title: "Day Chauffeur — Dakar", 
-          desc: "A dedicated driver and immaculate vehicle, all day long.", 
-          detail: "35,000 FCFA", 
+        {
+          title: "Day Chauffeur — Dakar",
+          desc: "A dedicated driver and immaculate vehicle, all day long.",
+          detail: "35,000 FCFA",
           action: "Request",
           icon: Clock
         },
-        { 
-          title: "Out of Dakar / Long Distance", 
-          desc: "Travel safely with consistent premium service over long distances.", 
-          detail: "60,000 FCFA", 
+        {
+          title: "Out of Dakar / Long Distance",
+          desc: "Travel safely with consistent premium service over long distances.",
+          detail: "60,000 FCFA",
           action: "Request",
           icon: MapIcon
         },
-        { 
-          title: "Corporate & Events", 
-          desc: "Protocol, discretion, reliability — for companies and special events.", 
-          detail: "On request", 
+        {
+          title: "Corporate & Events",
+          desc: "Protocol, discretion, reliability — for companies and special events.",
+          detail: "On request",
           action: "Request",
           icon: Briefcase
         }
@@ -755,7 +755,7 @@ const PILLARS = [
 
 function Gauge(props) {
   return (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg>
   )
 }
 
@@ -785,11 +785,11 @@ const NavLink = ({ href, label, isActive, onClick }) => {
       <motion.span
         className="text-xs font-medium tracking-widest uppercase relative z-10"
         initial={{ color: "rgba(255, 255, 255, 0.8)" }}
-        animate={{ 
+        animate={{
           color: isActive ? "#FFFFFF" : "rgba(255, 255, 255, 0.8)",
-          y: isActive ? -1 : 0 
+          y: isActive ? -1 : 0
         }}
-        whileHover={{ 
+        whileHover={{
           color: "#FFFFFF",
           y: -1
         }}
@@ -797,18 +797,18 @@ const NavLink = ({ href, label, isActive, onClick }) => {
       >
         {label}
       </motion.span>
-      
+
       {/* Amber Underline Slide */}
       <motion.div
         className="absolute -bottom-1 left-0 right-0 h-[1px] bg-amber-500 origin-left"
         initial={{ scaleX: 0, opacity: 0 }}
-        animate={{ 
+        animate={{
           scaleX: isActive ? 1 : 0,
           opacity: isActive ? 1 : 0
         }}
-        whileHover={{ 
-          scaleX: 1, 
-          opacity: 1 
+        whileHover={{
+          scaleX: 1,
+          opacity: 1
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       />
@@ -819,9 +819,9 @@ const NavLink = ({ href, label, isActive, onClick }) => {
 // PACK C: Updated Magnetic Button
 const Button = ({ children, onClick, variant = 'primary', className = '' }) => {
   return (
-    <MagneticButton 
-      onClick={onClick} 
-      variant={variant} 
+    <MagneticButton
+      onClick={onClick}
+      variant={variant}
       className={className}
     >
       {children}
@@ -870,7 +870,7 @@ const Header = ({ lang, setLang, currentRoute }) => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled || isOpen ? 'bg-neutral-950/95 backdrop-blur-md border-b border-white/5' : 'bg-transparent'} py-6`}>
       {/* PACK C: Progress Hairline */}
-      <motion.div 
+      <motion.div
         className="absolute top-0 left-0 right-0 h-[2px] bg-amber-500 opacity-60 origin-left"
         style={{ scaleX: scrollYProgress }}
       />
@@ -883,14 +883,14 @@ const Header = ({ lang, setLang, currentRoute }) => {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {getLinks(lang).map(link => (
-            <NavLink 
+            <NavLink
               key={link.path}
               href={link.path}
               label={link.label}
               isActive={checkActive(link.path)}
             />
           ))}
-          <Link 
+          <Link
             href={`/${switchLang()}${currentRoute.substring(3)}`}
             onClick={() => setLang(switchLang())}
             className="ml-4 flex items-center gap-1 text-[10px] text-neutral-400 hover:text-white uppercase border border-neutral-800 px-2 py-1 rounded transition-all"
@@ -907,14 +907,14 @@ const Header = ({ lang, setLang, currentRoute }) => {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: '100vh', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden bg-neutral-950 absolute top-full left-0 w-full flex flex-col items-center justify-center gap-8 py-12"
           >
             {getLinks(lang).map(link => (
-              <Link 
+              <Link
                 key={link.path}
                 href={link.path}
                 onClick={() => setIsOpen(false)}
@@ -923,9 +923,9 @@ const Header = ({ lang, setLang, currentRoute }) => {
                 {link.label}
               </Link>
             ))}
-             <button onClick={() => { setLang(switchLang()); setIsOpen(false); }} className="text-amber-500 mt-4 text-sm font-bold">
-               {lang === 'fr' ? 'Switch to English' : 'Passer en Français'}
-             </button>
+            <button onClick={() => { setLang(switchLang()); setIsOpen(false); }} className="text-amber-500 mt-4 text-sm font-bold">
+              {lang === 'fr' ? 'Switch to English' : 'Passer en Français'}
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -941,14 +941,14 @@ const Header = ({ lang, setLang, currentRoute }) => {
 
 const MaisonSection = ({ lang }) => {
   const t = DICTIONARY[lang].maison;
-  
+
   return (
     <section className="bg-gradient-to-b from-neutral-950 to-neutral-900 py-12 md:py-20 px-6 relative z-10">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          
+
           {/* Left: Brand Story */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -970,7 +970,7 @@ const MaisonSection = ({ lang }) => {
 
           {/* Right: Trust Metrics & Standards */}
           <div className="space-y-12">
-            
+
             {/* Chips */}
             <div className="flex flex-wrap gap-3">
               {t.metrics.map((metric, idx) => (
@@ -1022,7 +1022,7 @@ const ConciergeSection = ({ lang, onSelect }) => {
   return (
     <section className="bg-neutral-900 py-12 md:py-20 px-6 border-t border-neutral-800 relative z-10">
       <div className="container mx-auto max-w-6xl">
-        
+
         {/* Header */}
         <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
           <span className="text-amber-500 text-xs font-bold uppercase tracking-[0.2em] block mb-4">{t.eyebrow}</span>
@@ -1032,7 +1032,7 @@ const ConciergeSection = ({ lang, onSelect }) => {
 
         {/* --- MOVED RENTAL SECTION --- */}
         <div className="mb-24 border-b border-neutral-800 pb-16">
-           <div className="flex justify-between items-end mb-12">
+          <div className="flex justify-between items-end mb-12">
             <h2 className="text-3xl md:text-4xl text-white font-light">
               {tSec.featured_rental}
             </h2>
@@ -1044,7 +1044,7 @@ const ConciergeSection = ({ lang, onSelect }) => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {RENTAL_VEHICLES.slice(0, 3).map(car => (
-               <VehicleCard key={car.slug} item={car} type="rental" lang={lang} onSelect={onSelect} />
+              <VehicleCard key={car.slug} item={car} type="rental" lang={lang} onSelect={onSelect} />
             ))}
           </div>
         </div>
@@ -1088,7 +1088,7 @@ const VehicleCard = ({ item, type, lang, onSelect }) => {
   return (
     // PACK C: Tilt Interaction on Vehicle Cards
     <TiltCard className="h-full">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -1097,17 +1097,17 @@ const VehicleCard = ({ item, type, lang, onSelect }) => {
       >
         <div className="aspect-[4/3] overflow-hidden relative">
           {type === 'sales' ? (
-            <img 
-              src={item.images[0]} 
-              alt={item.model} 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            <img
+              src={item.images[0]}
+              alt={item.model}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
           ) : (
-             <PremiumImage src={item.image} alt={item.model} isRequest={item.is_request} />
+            <PremiumImage src={item.image} alt={item.model} isRequest={item.is_request} />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent opacity-80 pointer-events-none" />
         </div>
-        
+
         <div className="p-6 flex-1 flex flex-col justify-end">
           <div className="flex justify-between items-end mb-2">
             <div>
@@ -1120,7 +1120,7 @@ const VehicleCard = ({ item, type, lang, onSelect }) => {
               </div>
             )}
           </div>
-          
+
           <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
             <div className="pt-4 border-t border-neutral-800 flex justify-between text-neutral-400 text-xs uppercase tracking-wide">
               {type === 'sales' ? (
@@ -1131,11 +1131,11 @@ const VehicleCard = ({ item, type, lang, onSelect }) => {
                 </>
               ) : (
                 <div className="flex flex-wrap gap-2">
-                    {item.features?.map((f, i) => (
-                      <span key={i} className="px-2 py-1 border border-neutral-700 rounded-sm text-[10px] uppercase text-neutral-300">
-                        {f}
-                      </span>
-                    ))}
+                  {item.features?.map((f, i) => (
+                    <span key={i} className="px-2 py-1 border border-neutral-700 rounded-sm text-[10px] uppercase text-neutral-300">
+                      {f}
+                    </span>
+                  ))}
                 </div>
               )}
             </div>
@@ -1165,12 +1165,12 @@ const PageHome = ({ lang }) => {
   // PACK C: Hero Parallax
   const y = useTransform(scrollY, [0, 1000], [0, 200]);
   const scale = useTransform(scrollY, [0, 1000], [1, 1.05]);
-  
+
   // Custom navigation handler for the card click since VehicleCard uses a custom onClick prop in this simulated version
   const handleCardClick = (item, type) => {
-     // Trigger navigation event
-     const event = new CustomEvent('navigate', { detail: `/${lang}/${type === 'sales' ? 'vente' : 'location-chauffeur'}/${item.slug}` });
-     window.dispatchEvent(event);
+    // Trigger navigation event
+    const event = new CustomEvent('navigate', { detail: `/${lang}/${type === 'sales' ? 'vente' : 'location-chauffeur'}/${item.slug}` });
+    window.dispatchEvent(event);
   };
 
   return (
@@ -1178,10 +1178,10 @@ const PageHome = ({ lang }) => {
       <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         {/* PACK C: Parallax on Hero Video */}
         <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
-          <video 
+          <video
             ref={videoRef}
-            autoPlay 
-            loop 
+            autoPlay
+            loop
             muted={isMuted}
             playsInline
             // Keeping the previous high-quality image as poster/fallback
@@ -1190,15 +1190,15 @@ const PageHome = ({ lang }) => {
           >
             {/* NEW: Custom Video URL */}
             <source src="https://comeinnsenegal.com/videos/Cinematic_Luxury_Car_Night_Loop.mp4" type="video/mp4" />
-            
+
             Your browser does not support the video tag.
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-neutral-950/40 to-neutral-950" />
         </motion.div>
-        
+
         {/* Sound Toggle Button */}
         <div className="absolute bottom-8 right-8 z-30">
-          <button 
+          <button
             onClick={toggleMute}
             className="p-3 bg-neutral-900/50 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-neutral-800/80 transition-all duration-300"
           >
@@ -1237,7 +1237,7 @@ const PageHome = ({ lang }) => {
               </div>
             </Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SALES_VEHICLES.slice(0, 3).map(car => (
               <VehicleCard key={car.slug} item={car} type="sales" lang={lang} onSelect={handleCardClick} />
@@ -1251,15 +1251,15 @@ const PageHome = ({ lang }) => {
       <section className="py-12 md:py-20 bg-neutral-900 border-y border-neutral-800 px-6 relative z-10">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-             <span className="text-amber-500 text-xs uppercase tracking-[0.2em]">{tSec.why_us_eyebrow}</span>
-             <h2 className="text-3xl md:text-4xl text-white font-light mt-4">{tSec.why_us}</h2>
+            <span className="text-amber-500 text-xs uppercase tracking-[0.2em]">{tSec.why_us_eyebrow}</span>
+            <h2 className="text-3xl md:text-4xl text-white font-light mt-4">{tSec.why_us}</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {PILLARS.map((pillar, idx) => {
               const Icon = pillar.icon;
               return (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1286,19 +1286,19 @@ const PageHome = ({ lang }) => {
 const PageSales = ({ lang }) => {
   const t = DICTIONARY[lang].sales;
   const tSec = DICTIONARY[lang].sections;
-  
+
   // Custom navigation handler for the card click
   const handleCardClick = (item, type) => {
-     const event = new CustomEvent('navigate', { detail: `/${lang}/${type === 'sales' ? 'vente' : 'location-chauffeur'}/${item.slug}` });
-     window.dispatchEvent(event);
+    const event = new CustomEvent('navigate', { detail: `/${lang}/${type === 'sales' ? 'vente' : 'location-chauffeur'}/${item.slug}` });
+    window.dispatchEvent(event);
   };
 
   return (
     <div className="pt-32 pb-24 px-6 min-h-screen bg-neutral-950 relative z-10">
-      
+
       {/* SECTION A: HERO / POSITIONING */}
       <div className="container mx-auto max-w-6xl mb-24 text-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -1306,11 +1306,11 @@ const PageSales = ({ lang }) => {
           <span className="text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-4 block">{t.hero.eyebrow}</span>
           <h1 className="text-4xl md:text-6xl text-white font-light tracking-tight mb-6 relative inline-block">
             {t.hero.title}
-            <motion.div 
-              initial={{ width: 0 }} 
-              animate={{ width: "100%" }} 
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute -bottom-2 left-0 h-[1px] bg-amber-500 opacity-60" 
+              className="absolute -bottom-2 left-0 h-[1px] bg-amber-500 opacity-60"
             />
           </h1>
           <p className="text-neutral-400 text-lg font-light max-w-2xl mx-auto leading-relaxed">
@@ -1326,8 +1326,8 @@ const PageSales = ({ lang }) => {
           <p className="text-neutral-500 text-sm max-w-lg">{t.intro.desc}</p>
         </div>
         <div className="mt-6 md:mt-0">
-           {/* Placeholder for filter/sort actions if needed later */}
-           <span className="text-amber-500 text-xs font-bold uppercase tracking-widest">{SALES_VEHICLES.length} VEHICLES</span>
+          {/* Placeholder for filter/sort actions if needed later */}
+          <span className="text-amber-500 text-xs font-bold uppercase tracking-widest">{SALES_VEHICLES.length} VEHICLES</span>
         </div>
       </div>
 
@@ -1335,7 +1335,7 @@ const PageSales = ({ lang }) => {
       <div className="container mx-auto max-w-6xl mb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SALES_VEHICLES.map((car, idx) => (
-            <Link 
+            <Link
               key={idx}
               href={`/${lang}/vente/${car.slug}`}
               className="block h-full"
@@ -1385,7 +1385,7 @@ const PageSales = ({ lang }) => {
             {t.process.steps.map((step, idx) => {
               const Icon = step.icon;
               return (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1407,7 +1407,7 @@ const PageSales = ({ lang }) => {
       {/* SECTION F & G: SELL & SOURCE (SPLIT) */}
       <div className="container mx-auto max-w-6xl mb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
+
           {/* Sell Block */}
           <TiltCard className="bg-neutral-900 border border-neutral-800 p-12 flex flex-col items-start justify-between h-full">
             <div className="mb-8">
@@ -1415,7 +1415,7 @@ const PageSales = ({ lang }) => {
               <h3 className="text-3xl text-white font-light mb-4">{t.sell.title}</h3>
               <p className="text-neutral-400 font-light leading-relaxed">{t.sell.desc}</p>
             </div>
-            <Button variant="outline" onClick={() => window.open('https://wa.me/221765457270')}>
+            <Button variant="outline" onClick={() => window.open('https://wa.me/221768177571')}>
               {t.sell.cta}
             </Button>
           </TiltCard>
@@ -1427,7 +1427,7 @@ const PageSales = ({ lang }) => {
               <h3 className="text-3xl text-white font-light mb-4">{t.source.title}</h3>
               <p className="text-neutral-400 font-light leading-relaxed">{t.source.desc}</p>
             </div>
-            <Button variant="outline" onClick={() => window.open('https://wa.me/221765457270')}>
+            <Button variant="outline" onClick={() => window.open('https://wa.me/221768177571')}>
               {t.source.cta}
             </Button>
           </TiltCard>
@@ -1439,14 +1439,14 @@ const PageSales = ({ lang }) => {
       <div className="container mx-auto max-w-4xl text-center pb-20">
         <h3 className="text-2xl text-white font-light mb-10 tracking-wide">{t.final_cta.text}</h3>
         <div className="flex flex-col md:flex-row gap-6 justify-center">
-          <Button onClick={() => { 
-             // Scroll to grid
-             window.scrollTo({ top: 400, behavior: 'smooth' });
+          <Button onClick={() => {
+            // Scroll to grid
+            window.scrollTo({ top: 400, behavior: 'smooth' });
           }}>
             {t.final_cta.btn_view}
           </Button>
           <div className="hidden md:block w-px bg-neutral-800" />
-          <Button variant="outline" onClick={() => window.open('https://wa.me/221765457270')}>
+          <Button variant="outline" onClick={() => window.open('https://wa.me/221768177571')}>
             {t.final_cta.btn_contact}
           </Button>
         </div>
@@ -1498,7 +1498,7 @@ const PageSalesDetail = ({ lang, slug }) => {
               ))}
             </div>
 
-            <Button onClick={() => window.open(`https://wa.me/221765457270?text=I am interested in ${car.brand} ${car.model}`)} className="w-full flex justify-center items-center gap-2">
+            <Button onClick={() => window.open(`https://wa.me/221768177571?text=I am interested in ${car.brand} ${car.model}`)} className="w-full flex justify-center items-center gap-2">
               <Phone size={18} /> {t.sales.contact_btn}
             </Button>
           </div>
@@ -1512,18 +1512,18 @@ const PageSalesDetail = ({ lang, slug }) => {
 const PageRental = ({ lang }) => {
   const t = DICTIONARY[lang].rental;
   const common = DICTIONARY[lang].common;
-  
+
   // Custom navigation handler for the card click
   const handleCardClick = (item, type) => {
-     // Trigger specific action if needed
+    // Trigger specific action if needed
   };
 
   return (
     <div className="pt-32 pb-24 px-6 min-h-screen bg-neutral-950 relative z-10">
-      
+
       {/* SECTION A: HERO */}
       <div className="container mx-auto max-w-6xl mb-24 text-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -1531,20 +1531,20 @@ const PageRental = ({ lang }) => {
           <span className="text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-4 block">{t.hero.eyebrow}</span>
           <h1 className="text-4xl md:text-6xl text-white font-light tracking-tight mb-6 relative inline-block">
             {t.hero.title}
-            <motion.div 
-              initial={{ width: 0 }} 
-              animate={{ width: "100%" }} 
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute -bottom-2 left-0 h-[1px] bg-amber-500 opacity-60" 
+              className="absolute -bottom-2 left-0 h-[1px] bg-amber-500 opacity-60"
             />
           </h1>
           <p className="text-neutral-400 text-lg font-light max-w-2xl mx-auto leading-relaxed mb-10">
             {t.hero.subline}
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-3">
             {t.hero.chips.map((chip, idx) => (
-              <motion.span 
+              <motion.span
                 key={idx}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -1579,7 +1579,7 @@ const PageRental = ({ lang }) => {
                     <h4 className="text-white text-lg font-medium">{car.model}</h4>
                     <p className="text-neutral-400 text-xs mt-1 italic">{car.spec_line}</p>
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {car.features.map((f, i) => (
                       <span key={i} className="text-[10px] uppercase border border-neutral-700 text-neutral-400 px-2 py-1 rounded-sm">
@@ -1590,7 +1590,7 @@ const PageRental = ({ lang }) => {
                 </div>
               </div>
               <div className="p-6 pt-0">
-                <Button variant="outline" className="w-full text-xs" onClick={() => window.open(`https://wa.me/221765457270?text=${encodeURIComponent(car.wa_message)}`)}>
+                <Button variant="outline" className="w-full text-xs" onClick={() => window.open(`https://wa.me/221768177571?text=${encodeURIComponent(car.wa_message)}`)}>
                   {t.book_btn}
                 </Button>
               </div>
@@ -1603,22 +1603,22 @@ const PageRental = ({ lang }) => {
       <div className="container mx-auto max-w-6xl mb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-neutral-900 pt-16">
           <motion.div
-             initial={{ opacity: 0, x: -20 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
           >
             <h2 className="text-3xl text-white font-light mb-6">{t.experience.title}</h2>
-            <motion.div 
+            <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: "60px" }}
-              className="h-[2px] bg-amber-500 mb-8" 
+              className="h-[2px] bg-amber-500 mb-8"
             />
           </motion.div>
-          <motion.div 
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             viewport={{ once: true }}
-             className="text-neutral-400 font-light space-y-6 text-lg leading-relaxed"
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-neutral-400 font-light space-y-6 text-lg leading-relaxed"
           >
             <p>{t.experience.p1}</p>
             <p>{t.experience.p2}</p>
@@ -1636,7 +1636,7 @@ const PageRental = ({ lang }) => {
               {t.comfort.cards.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     whileHover={{ y: -2 }}
                     className="p-6 bg-neutral-950 border border-neutral-800"
@@ -1654,7 +1654,7 @@ const PageRental = ({ lang }) => {
               <h3 className="text-2xl text-white font-light mb-8">{t.comfort.features_title}</h3>
               <ul className="space-y-6">
                 {t.comfort.features.map((feat, idx) => (
-                  <motion.li 
+                  <motion.li
                     key={idx}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -1686,8 +1686,8 @@ const PageRental = ({ lang }) => {
               { label: t.service_outside, price: RENTAL_RATES.outside_dakar },
               { label: t.service_extra, price: RENTAL_RATES.extra_day },
             ].map((rate, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
@@ -1718,9 +1718,9 @@ const PageRental = ({ lang }) => {
         <h3 className="text-2xl text-white font-light mb-10 tracking-wide">{t.final_cta.text}</h3>
         <div className="flex flex-col md:flex-row gap-6 justify-center">
           <Button onClick={() => {
-             // Updated link: Point to Contact page instead of WhatsApp
-             const event = new CustomEvent('navigate', { detail: `/${lang}/contact` });
-             window.dispatchEvent(event);
+            // Updated link: Point to Contact page instead of WhatsApp
+            const event = new CustomEvent('navigate', { detail: `/${lang}/contact` });
+            window.dispatchEvent(event);
           }}>
             {t.final_cta.btn_book}
           </Button>
@@ -1741,11 +1741,11 @@ const PageAbout = ({ lang }) => {
 
   return (
     <div className="pt-32 pb-24 px-6 min-h-screen bg-neutral-950 relative z-10">
-      
+
       {/* SECTION A: HERO EDITORIAL */}
       <div className="container mx-auto max-w-6xl mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -1753,11 +1753,11 @@ const PageAbout = ({ lang }) => {
             <span className="text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-4 block">{t.hero.eyebrow}</span>
             <h1 className="text-5xl md:text-7xl text-white font-light tracking-tight mb-6 relative inline-block">
               {t.hero.title}
-              <motion.div 
-                initial={{ width: 0 }} 
-                animate={{ width: "60%" }} 
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "60%" }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="absolute -bottom-2 left-0 h-[2px] bg-amber-500" 
+                className="absolute -bottom-2 left-0 h-[2px] bg-amber-500"
               />
             </h1>
             <h3 className="text-xl text-white font-medium mb-8">{t.hero.subline}</h3>
@@ -1767,17 +1767,17 @@ const PageAbout = ({ lang }) => {
               <p className="text-white font-medium">{t.hero.p3}</p>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
             className="relative h-[600px] w-full rounded-2xl overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-            <img 
-              src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1000&auto=format&fit=crop" 
-              alt="Luxury Car Interior" 
+            <img
+              src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1000&auto=format&fit=crop"
+              alt="Luxury Car Interior"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -1788,7 +1788,7 @@ const PageAbout = ({ lang }) => {
       <div className="container mx-auto max-w-6xl mb-32">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {t.values.items.map((value, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1814,7 +1814,7 @@ const PageAbout = ({ lang }) => {
             {t.standards.items.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1859,9 +1859,9 @@ const PageAbout = ({ lang }) => {
             {t.cta.btn_wa}
           </Button>
           <div className="hidden md:block w-px bg-neutral-800" />
-          <Button variant="outline" onClick={() => { 
-             const event = new CustomEvent('navigate', { detail: `/${lang}/location-chauffeur` });
-             window.dispatchEvent(event);
+          <Button variant="outline" onClick={() => {
+            const event = new CustomEvent('navigate', { detail: `/${lang}/location-chauffeur` });
+            window.dispatchEvent(event);
           }}>
             {t.cta.btn_fleet}
           </Button>
@@ -1875,18 +1875,18 @@ const PageAbout = ({ lang }) => {
 // --- Page Contact (REDESIGNED) ---
 const PageContact = ({ lang }) => {
   const t = DICTIONARY[lang].contact;
-  
+
   return (
     <div className="pt-32 pb-24 px-6 min-h-screen bg-neutral-950 relative z-10">
-      
+
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          
+
           {/* LEFT: INFO & FORM */}
           <div className="flex flex-col h-full">
-            
+
             {/* SECTION A: HERO / INTRO */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -1895,11 +1895,11 @@ const PageContact = ({ lang }) => {
               <span className="text-amber-500 text-xs font-bold uppercase tracking-[0.2em] mb-4 block">{t.hero.eyebrow}</span>
               <h1 className="text-4xl md:text-6xl text-white font-light tracking-tight mb-6 relative inline-block">
                 {t.hero.title}
-                <motion.div 
-                  initial={{ width: 0 }} 
-                  animate={{ width: "100%" }} 
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className="absolute -bottom-2 left-0 h-[1px] bg-amber-500 opacity-60" 
+                  className="absolute -bottom-2 left-0 h-[1px] bg-amber-500 opacity-60"
                 />
               </h1>
               <p className="text-neutral-400 text-lg font-light leading-relaxed mt-4">
@@ -1909,41 +1909,41 @@ const PageContact = ({ lang }) => {
 
             {/* SECTION C: CONTACT INFO & REASSURANCE */}
             <div className="mb-12 space-y-8">
-               <div className="flex flex-col gap-6">
-                 <div className="flex items-center gap-4 group cursor-pointer">
-                   <div className="w-10 h-10 bg-neutral-900 flex items-center justify-center text-amber-500 border border-neutral-800 group-hover:border-amber-500/50 transition-colors"><Phone size={18} /></div>
-                   <div>
-                     <p className="text-neutral-500 text-xs uppercase mb-1 tracking-widest">Telephone</p>
-                     <a href="tel:+221765457270" className="text-white text-lg hover:text-amber-500 transition-colors">+221 76 545 72 70</a>
-                   </div>
-                 </div>
-                 <div className="flex items-center gap-4 group cursor-pointer">
-                   <div className="w-10 h-10 bg-neutral-900 flex items-center justify-center text-amber-500 border border-neutral-800 group-hover:border-amber-500/50 transition-colors"><Mail size={18} /></div>
-                   <div>
-                     <p className="text-neutral-500 text-xs uppercase mb-1 tracking-widest">Email</p>
-                     <a href="mailto:contact@carsdakar.sn" className="text-white text-lg hover:text-amber-500 transition-colors">contact@carsdakar.sn</a>
-                   </div>
-                 </div>
-                 <div className="flex items-center gap-4 group">
-                   <div className="w-10 h-10 bg-neutral-900 flex items-center justify-center text-amber-500 border border-neutral-800"><MapPin size={18} /></div>
-                   <div>
-                     <p className="text-neutral-500 text-xs uppercase mb-1 tracking-widest">Location</p>
-                     <p className="text-white text-lg">Corniche Ouest, Dakar</p>
-                   </div>
-                 </div>
-               </div>
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4 group cursor-pointer">
+                  <div className="w-10 h-10 bg-neutral-900 flex items-center justify-center text-amber-500 border border-neutral-800 group-hover:border-amber-500/50 transition-colors"><Phone size={18} /></div>
+                  <div>
+                    <p className="text-neutral-500 text-xs uppercase mb-1 tracking-widest">Telephone</p>
+                    <a href="tel:+221765457270" className="text-white text-lg hover:text-amber-500 transition-colors">+221 76 545 72 70</a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 group cursor-pointer">
+                  <div className="w-10 h-10 bg-neutral-900 flex items-center justify-center text-amber-500 border border-neutral-800 group-hover:border-amber-500/50 transition-colors"><Mail size={18} /></div>
+                  <div>
+                    <p className="text-neutral-500 text-xs uppercase mb-1 tracking-widest">Email</p>
+                    <a href="mailto:contact@carsdakar.sn" className="text-white text-lg hover:text-amber-500 transition-colors">contact@carsdakar.sn</a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 bg-neutral-900 flex items-center justify-center text-amber-500 border border-neutral-800"><MapPin size={18} /></div>
+                  <div>
+                    <p className="text-neutral-500 text-xs uppercase mb-1 tracking-widest">Location</p>
+                    <p className="text-white text-lg">Corniche Ouest, Dakar</p>
+                  </div>
+                </div>
+              </div>
 
-               {/* Reassurance Block */}
-               <motion.div 
-                 initial={{ opacity: 0, x: -10 }}
-                 whileInView={{ opacity: 1, x: 0 }}
-                 transition={{ delay: 0.4 }}
-                 className="pl-6 border-l border-amber-500/20 py-2"
-               >
-                 <p className="text-neutral-400 text-sm font-light leading-relaxed italic">
-                   {t.reassurance}
-                 </p>
-               </motion.div>
+              {/* Reassurance Block */}
+              <motion.div
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                className="pl-6 border-l border-amber-500/20 py-2"
+              >
+                <p className="text-neutral-400 text-sm font-light leading-relaxed italic">
+                  {t.reassurance}
+                </p>
+              </motion.div>
             </div>
 
             {/* SECTION D: FORM */}
@@ -1956,11 +1956,11 @@ const PageContact = ({ lang }) => {
                   <input type="tel" className="w-full bg-neutral-900 border border-neutral-800 p-4 text-white focus:border-amber-500/50 focus:bg-neutral-900 outline-none transition-colors rounded-sm text-sm" placeholder={t.form.phone} />
                 </div>
               </div>
-              
+
               <input type="email" className="w-full bg-neutral-900 border border-neutral-800 p-4 text-white focus:border-amber-500/50 focus:bg-neutral-900 outline-none transition-colors rounded-sm text-sm" placeholder={t.form.email} />
-              
+
               <div className="relative">
-                <select 
+                <select
                   className="w-full bg-neutral-900 border border-neutral-800 p-4 text-neutral-300 focus:border-amber-500/50 focus:bg-neutral-900 outline-none transition-colors rounded-sm text-sm appearance-none cursor-pointer"
                   defaultValue=""
                 >
@@ -1973,10 +1973,10 @@ const PageContact = ({ lang }) => {
               </div>
 
               <textarea className="w-full bg-neutral-900 border border-neutral-800 p-4 text-white focus:border-amber-500/50 focus:bg-neutral-900 outline-none transition-colors rounded-sm text-sm min-h-[150px] resize-none" placeholder={t.form.message} />
-              
+
               <div className="flex flex-col gap-4 pt-4">
                 <Button className="w-full justify-center">{t.form.btn_primary}</Button>
-                <button 
+                <button
                   type="button"
                   onClick={() => window.open('https://wa.me/221765457270')}
                   className="text-neutral-400 hover:text-white text-xs uppercase tracking-widest text-center transition-colors pb-1 border-b border-transparent hover:border-amber-500 inline-block mx-auto"
@@ -1990,17 +1990,17 @@ const PageContact = ({ lang }) => {
 
           {/* RIGHT: ATMOSPHERIC VISUAL ANCHOR */}
           <div className="lg:h-full lg:min-h-[800px] relative hidden lg:block rounded-2xl overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/20 z-10" />
-             <div className="absolute inset-0 bg-amber-900/10 mix-blend-overlay z-10" />
-             <motion.img 
-               initial={{ scale: 1.1, opacity: 0 }}
-               animate={{ scale: 1, opacity: 1 }}
-               transition={{ duration: 1.5, ease: "easeOut" }}
-               // Updated image with the new direct link provided
-               src="https://i0.wp.com/rrcustomslondon.co.uk/wp-content/uploads/2025/04/Ambient.jpeg" 
-               alt="Luxury Car Interior Night Ambient" 
-               className="w-full h-full object-cover opacity-80"
-             />
+            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/20 z-10" />
+            <div className="absolute inset-0 bg-amber-900/10 mix-blend-overlay z-10" />
+            <motion.img
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              // Updated image with the new direct link provided
+              src="https://i0.wp.com/rrcustomslondon.co.uk/wp-content/uploads/2025/04/Ambient.jpeg"
+              alt="Luxury Car Interior Night Ambient"
+              className="w-full h-full object-cover opacity-80"
+            />
           </div>
 
         </div>
@@ -2065,14 +2065,14 @@ export default function App() {
 
   const renderPage = () => {
     const path = route.substring(3) || '/';
-    
+
     if (path === '/' || path === '') return <PageHome lang={lang} />;
     if (path === '/vente') return <PageSales lang={lang} />;
     if (path.startsWith('/vente/')) return <PageSalesDetail lang={lang} slug={path.split('/vente/')[1]} />;
     if (path === '/location-chauffeur') return <PageRental lang={lang} />;
     if (path === '/a-propos') return <PageAbout lang={lang} />;
     if (path === '/contact') return <PageContact lang={lang} />;
-    
+
     return <PageHome lang={lang} />;
   };
 
@@ -2082,7 +2082,7 @@ export default function App() {
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
         :root, body, html { font-family: 'Montserrat', sans-serif; cursor: default; }
       `}</style>
-      
+
       {/* PACK C: Global Effects */}
       <NoiseOverlay />
       <CursorAura />
@@ -2090,9 +2090,9 @@ export default function App() {
       <Header lang={lang} setLang={(l) => {
         setLang(l);
       }} currentRoute={route} />
-      
+
       <AnimatePresence mode="wait">
-        <motion.div 
+        <motion.div
           key={route}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -2106,8 +2106,8 @@ export default function App() {
 
       <footer className="bg-black py-12 border-t border-neutral-900 text-center relative z-10">
         <div className="container mx-auto px-6">
-           <span className="text-2xl font-bold text-white tracking-tighter block mb-4">CARS<span className="text-amber-500">DAKAR</span></span>
-           <p className="text-neutral-500 text-sm">© 2026 Luxury Motors Senegal. All rights reserved.</p>
+          <span className="text-2xl font-bold text-white tracking-tighter block mb-4">CARS<span className="text-amber-500">DAKAR</span></span>
+          <p className="text-neutral-500 text-sm">© 2026 Luxury Motors Senegal. All rights reserved.</p>
         </div>
       </footer>
     </div>

@@ -1,7 +1,7 @@
 export const CONTACT_CONFIG = {
     PHONE: {
-        DISPLAY: "+221 76 545 72 70",
-        E164: "221765457270",
+        DISPLAY: "+221 76 817 75 71",
+        E164: "221768177571",
     },
     EMAIL: "sevendigitsdkr@gmail.com",
 } as const;
